@@ -39,23 +39,60 @@ number = int(input())
 side_len = int(input())
 colour = input()
 colour1 = input()
+t.speed(100)
 x = 0
 y = 0
-for i in range(number):
+for i in range(number//2):
+    colour, colour1 = colour1, colour
     t.pu()
-    for i in range(number):
+    for i in range(number//2):
+        colour, colour1 = colour1, colour
         t.pu()
         draw_hexagons(x, y, side_len, 'black', colour)
         y += 2 * math.sqrt(3) * side_len
-    y= 0
+    y = 0
     x += 2*math.sqrt(3) * side_len
 x = 0
 y = 0
-for i in range(number):
+for i in range(number-number//2):
     t.pu()
-    colour = colour1
     x += math.sqrt(3) * side_len
-    draw_hexagons(x, y, side_len, 'black', colour)
+    for i in range(number-number//2):
+        colour, colour1 = colour1, colour
+        t.pu()
+        draw_hexagons(x, y, side_len, 'black', colour)
+        y += 2 * math.sqrt(3) * side_len
+    colour, colour1 = colour1, colour
+    y = 0
     x += math.sqrt(3) * side_len
+x = 0
+y = 0
+for i in range(number-number//2):
+    colour, colour1 = colour1, colour
+    t.pu()
+    x += math.sqrt(3) * side_len/2
+    y += math.sqrt(3) * side_len
+    for i in range(number-number//2):
+        colour, colour1 = colour1, colour
+        t.pu()
+        draw_hexagons(x, y, side_len, 'black', colour)
+        y += 2*math.sqrt(3) * side_len
+    y = 0
+    x += 3*math.sqrt(3) * side_len/2
+x = 0
+y = 0
+for i in range(number-number//2):
+    t.pu()
+    x += 3*math.sqrt(3) * side_len/2
+    y += math.sqrt(3) * side_len
+    for i in range(number-number//2):
+        colour, colour1 = colour1, colour
+        t.pu()
+        draw_hexagons(x, y, side_len, 'black', colour)
+        y += 2*math.sqrt(3) * side_len
+    colour, colour1 = colour1, colour
+    y = 0
+    x += math.sqrt(3) * side_len/2
+
 
 t.done()
