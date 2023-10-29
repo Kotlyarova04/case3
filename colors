@@ -1,0 +1,26 @@
+colors = ["красный", "синий", "зеленый", "желтый", "оранжевый", "пурпурный", "розовый"]
+print("Выберите два цвета из списка, цвета не могут повторяться:")
+for i in range(len(colors)):
+    print(i+1, "-", colors[i])
+
+print("Введите первый цвет:")
+color_1 = input()
+while True:
+    if color_1 not in colors:
+        print('Цвет не включен в список. Пожалуйста, введите цвет еще раз')
+        color_1 = input()
+    else:
+        print('Пожалуйста, введите второй цвет')
+        break
+
+color_2 = input()
+while True:
+    if color_2 not in colors:
+        print('Цвет не включен в список. Пожалуйста, введите цвет еще раз')
+        color_2 = input()
+    if color_2 == color_1:
+        print('Второй цвет повторяется. Пожалуйста, введите цвет еще раз')
+        color_2 = input()
+    else:
+        print(color_1, color_2)
+        break
