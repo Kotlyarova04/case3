@@ -49,10 +49,13 @@ print('''Допустимые цвета заливки:
 colour = input("Пожалуйста, введите первый цвет: ")
 colour1 = input("Пожалуйста, введите второй цвет: ")
 number = int(input("Пожалуйста, введите количество шестиугольников, располагаемых в ряд:"))
-side_len = int(input())
+
 t.speed(100)
-x = 0
-y = 0
+y1 = 500 / (2 * number)
+x = (0.57735 * y1)
+y = 500 / (2 * number)
+side_len = 2 * x
+
 for i in range(1, number + 1):
     t.pu()
     for j in range(1, number + 1):
@@ -60,12 +63,12 @@ for i in range(1, number + 1):
         t.pu()
         draw_hexagons(x, y, side_len, 'black', colour)
         x += math.sqrt(3) * side_len
-    x = 0
+    x = (0.57735 * y1)
     y += 3 * side_len / 2
     if i % 2 != 0:
         x += math.sqrt(3) * side_len / 2
     else:
         colour, colour1 = colour1, colour
-        x = 0
+        x = (0.57735 * y1)
 
 t.done()
