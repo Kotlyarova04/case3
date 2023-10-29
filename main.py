@@ -15,14 +15,13 @@ def get_color_choice(colour):
 
 
 def draw_hexagons(x, y, side_len, colour, pencolour):
-    '''
+    """
     Function for drawing a hexagons.
     :param x: first coordinate of the start of drawing hexagons
-    :param y: second coordinate of the start of drawing hexagons
-    :param a: length of the side
-    :param color: hexagons fillcolor
+    :param y: second coordinate
+    :param colour: hexagons fillcolor
     :return: None
-    '''
+    """
     t.goto(x, y)
     t.color(colour, pencolour)
     t.begin_fill()
@@ -36,6 +35,8 @@ def draw_hexagons(x, y, side_len, colour, pencolour):
         t.forward(side_len)
         t.rt(30)
     t.end_fill()
+
+
 print('''Допустимые цвета заливки:
 красный
 синий
