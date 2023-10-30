@@ -6,22 +6,33 @@ import turtle as t
 import math
 
 
-def get_num_hexagons(num):
-    return num
+def get_num_hexagons():
+    while True:
+        num = int(input("Пожалуйста, введите количество шестиугольников, располагаемых в ряд:"))
+        if 4 <= num <= 20:
+            return num
+        print("Ошибка, оно должно быть от 4 до 20")
 
 
-def get_color_choice(colour):
-    return colour
+
+def get_color_choice():
+    print('''Допустимые цвета заливки:
+    красный
+    синий
+    зеленый
+    желтый
+    оранжевый
+    пурпурный
+    розовый
+    ''')
+    colors = ["red", "blue", "зеленый", "желтый", "оранжевый", "пурпурный", "розовый"]
+    colour = input("Пожалуйста, введите первый цвет: ")
+    colour1 = input("Пожалуйста, введите второй цвет: ")
+    if colour in colors:
+        return colour, colour1
 
 
 def draw_hexagons(x, y, side_len, colour, pencolour):
-    """
-    Function for drawing a hexagons.
-    :param x: first coordinate of the start of drawing hexagons
-    :param y: second coordinate
-    :param colour: hexagons fillcolor
-    :return: None
-    """
     t.goto(x, y)
     t.color(colour, pencolour)
     t.begin_fill()
@@ -37,38 +48,27 @@ def draw_hexagons(x, y, side_len, colour, pencolour):
     t.end_fill()
 
 
-print('''Допустимые цвета заливки:
-красный
-синий
-зеленый
-желтый
-оранжевый
-пурпурный
-розовый
-''')
-colour = input("Пожалуйста, введите первый цвет: ")
-colour1 = input("Пожалуйста, введите второй цвет: ")
-number = int(input("Пожалуйста, введите количество шестиугольников, располагаемых в ряд:"))
+colour_1, colour_2 = get_color_choice()
+num_hexagons = get_num_hexagons()
 
-t.speed(100)
-y1 = 500 / (2 * number)
+y1 = 500 / (2 * num_hexagons)
 x = (0.57735 * y1)
-y = 500 / (2 * number)
+y = 500 / (2 * num_hexagons)
 side_len = 2 * x
 
-for i in range(1, number + 1):
+for i in range(1, num_hexagons + 1):
     t.pu()
-    for j in range(1, number + 1):
-        colour, colour1 = colour1, colour
+    for j in range(1, num_hexagons + 1):
+        colour_1, colour_2 = colour_2, colour_1
         t.pu()
-        draw_hexagons(x, y, side_len, 'black', colour)
+        draw_hexagons(x, y, side_len, 'black', colour_1)
         x += math.sqrt(3) * side_len
     x = (0.57735 * y1)
     y += 3 * side_len / 2
     if i % 2 != 0:
         x += math.sqrt(3) * side_len / 2
     else:
-        colour, colour1 = colour1, colour
+        colour_1, colour_2 = colour_2, colour_1
         x = (0.57735 * y1)
 
 t.done()
