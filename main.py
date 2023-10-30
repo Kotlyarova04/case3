@@ -1,5 +1,5 @@
 """
-Kotlyarova Polina
+Kotlyarova Polina 55
 Rafaevich Vita
 """
 import turtle as t
