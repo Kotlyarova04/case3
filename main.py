@@ -1,6 +1,6 @@
 """
 Kotlyarova Polina 55
-Rafaevich Vita
+Rafaevich Vita 60
 """
 import turtle as t
 import math
